@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 
 
-//find power set (a set of all possible sets)
+//find power set (a set of all possible sets) -> arrangement doesn't matter
 class subSetFinder {
 	// https://www.geeksforgeeks.org/finding-all-subsets-of-a-given-set-in-java/
 
