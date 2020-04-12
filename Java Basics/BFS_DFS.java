@@ -10,74 +10,82 @@ class BFS_DFS {
 		System.out.println("-------------------------------");
 	}
 
-// remember that DFS is just a traversal thing -> the printing can be inorder postoder preorder 
-	static boolean DFS(node root, char k) {
+// DFS IS mark as visited and visit univisited
+// remember that DFS is just a traversal thing -> the printing can be inorder postoder preorder (for a binary tree)
+// BFS is generally for traversing simple things (tree)	
+	// check explnation in the word file
+	static ArrayList<node> visited = new ArrayList<node>();
+	static ArrayList<node> GraphVertices = new ArrayList<node>(); // stores all graph vertices
+
+	// Iterative implementation -> works for any any graph (inlcuding trees)
+	static void DFS(node root) {
 		// use a stack
 		// visited list
 		Stack<node> stack = new Stack<node>();
-		ArrayList<node> visited = new ArrayList<node>();
-
 		// push the root to the stack
 		stack.push(root);
 		while (!stack.isEmpty()) {
-			
-			
 			node current = stack.pop();
-			while(visited.contains(current)) //if it is already visited pop another one
-			{
-				current = stack.pop();
-			}
-			
-			System.out.println(current.val);
-			if (current.val == k)
-				return true;
-			else {
-				// push its children to the stack
+			if (!visited.contains(current)) { // undiscovered
+				visited.add(current); // mark it as visited
+				System.out.println(current.val);
+
+				// push its univsited children to the stack
 				for (int i = 0; i < current.children.size(); i++) {
-					stack.push(current.children.get(i));
+					if (!visited.contains(current.children.get(i)))
+						stack.push(current.children.get(i));
 				}
-				//mark the current as visited
-				visited.add(current);
-
+				// mark the current as visited
 			}
-
 		}
-		return false;
 
 	}
-	
-	static boolean BFS(node root, char k) {
+
+	static void DFS_recursive(node current) {
+		visited.add(current); // mark it as visited
+		System.out.println(current.val);
+		//visit children who are not visited
+		for (int i = 0; i < current.children.size(); i++) {
+			if (!visited.contains(current.children.get(i))) 
+				DFS_recursive(current.children.get(i));
+		
+		}
+
+	}
+
+	static void DFS_helper() {
+		for (int i = 0; i < GraphVertices.size(); i++) {
+			if (!visited.contains(GraphVertices.get(i))) // for every not visited node apply DFS
+			{
+				DFS(GraphVertices.get(i)); // iterative
+				//DFS_recursive(GraphVertices.get(i));// Recursive DFS
+			}
+		}
+
+	}
+
+	// not really important
+	static void BFS(node root) {
+
 		// use a stack
 		// visited list
 		Queue<node> queue = new LinkedList<node>();
-		ArrayList<node> visited = new ArrayList<node>();
-
 		// push the root to the stack
 		queue.add(root);
 		while (!queue.isEmpty()) {
-			
-			
 			node current = queue.poll();
-			while(visited.contains(current)) //if it is already visited pop another one
-			{
-				current = queue.poll();
-			}
-			
-			System.out.println(current.val);
-			if (current.val == k)
-				return true;
-			else {
-				// push its children to the stack
+			if (!visited.contains(current)) { // undiscovered
+				visited.add(current); // mark it as visited
+				System.out.println(current.val);
+
+				// push its univsited children to the stack
 				for (int i = 0; i < current.children.size(); i++) {
-					queue.add(current.children.get(i));
+					if (!visited.contains(current.children.get(i)))
+						queue.add(current.children.get(i));
 				}
-				//mark the current as visited
-				visited.add(current);
-
+				// mark the current as visited
 			}
-
 		}
-		return false;
 
 	}
 
@@ -111,11 +119,23 @@ class BFS_DFS {
 		c.children.add(g);
 
 		f.children.add(k);
-		
-		DFS(a,'j');
-		
+
+		GraphVertices.add(a);
+		GraphVertices.add(b);
+		GraphVertices.add(c);
+		GraphVertices.add(d);
+		GraphVertices.add(e);
+		GraphVertices.add(f);
+		GraphVertices.add(g);
+		GraphVertices.add(h);
+		GraphVertices.add(i);
+		GraphVertices.add(j);
+		GraphVertices.add(k);
+
+		DFS_helper(); // apply DFS to every node
+
 		printer();
-		BFS(a,'j');
+		// BFS(a);
 
 	}
 }
@@ -123,7 +143,7 @@ class BFS_DFS {
 class node {
 
 	char val;
-	ArrayList<node> children = new ArrayList<node>();
+	ArrayList<node> children = new ArrayList<node>(); // children= neighbours
 
 	node(char val) {
 		this.val = val;
