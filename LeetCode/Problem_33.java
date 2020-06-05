@@ -1,3 +1,63 @@
+// CLEANER SOLUTION
+class Solution {
+	public int search(int[] nums, int k) {
+
+		if (nums.length == 0)
+			return -1;
+
+		int left = 0;
+		int right = nums.length - 1;
+        
+		while (left < right) {
+			int mid = left + (right - left) / 2;
+
+			if (nums[mid] > nums[right]) // weird part
+				left = mid + 1;
+
+			else
+				right = mid;
+
+		}
+		// now we have the lowest element
+		// decide to search from that point to right or its left?
+
+		int smallest = left;
+
+		if (nums[smallest] == k)
+			return smallest; // optimization
+
+		if (nums[smallest] < k && k <= nums[nums.length - 1]) {
+
+			left = smallest;
+			right = nums.length - 1;
+		} else {
+			left = 0;
+			right = smallest - 1;
+		}
+
+		while (left <= right) {
+			int mid = left + (right - left) / 2;
+
+			if (nums[mid] == k)
+				return mid;
+
+			if (nums[mid] < k) {
+				left = mid + 1;
+			} else {
+				right = mid - 1;
+			}
+		}
+
+		return -1;
+
+		// perform normal binary search
+
+	}
+}
+
+
+/*
+
 class Solution {
     
 	public int binary_search(int nums[], int left, int right, int k) {
@@ -35,3 +95,4 @@ class Solution {
       
     }
 }
+*/
