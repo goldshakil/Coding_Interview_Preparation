@@ -12,9 +12,13 @@ class Solution {
             else if(nums[mid]<nums[left])
                 right=mid;
             
-           else
-                right--; //a[mid]=a[right] 100% -> remove duplicate
-            
+         else {
+				if (right != 0 && nums[right] >= nums[right - 1])
+					right--;
+				else
+					return right; // a[mid]=a[right] 100% -> remove duplicate
+
+			}
         }
  
         
