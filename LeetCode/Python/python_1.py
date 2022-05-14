@@ -8,7 +8,7 @@ class Solution:
         # nums_hash={1:[0] ,2:[1],3:[2,5],5:[3], 6:[4]}
         nums_hash={}
         for idx,i in enumerate(nums):
-            if nums_hash.get(i):
+            if i in nums_hash: #DON"T USE nums_hash.get(i) -> slower and possible bug when the value return is 0
                  nums_hash[i].append(idx)
             else:
                 nums_hash[i]=[idx]
