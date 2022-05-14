@@ -1,3 +1,4 @@
+#LC-35
 def binary_search(left, right, val, nums):
     
     if right >= left:
