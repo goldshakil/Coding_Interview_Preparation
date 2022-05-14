@@ -15,7 +15,7 @@ class Solution:
                 window_profit=0
                 window_left=i
             else:
-                window_profit=prices[i]-prices[window_left] #Option2: Add the new item to the windows since profit is positive -> viable window
+                window_profit=prices[i]-prices[window_left] #Option2: Add the new item to the window since profit is positive -> viable window
                 
             max_profit=max(max_profit,window_profit)
                 
