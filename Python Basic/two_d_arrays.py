@@ -15,11 +15,11 @@ def main():
 
     num = 1
     for i in range(rows):
-        col = []
+        row = []
         for j in range(cols):
-            col.append(num)
+            row.append(num)
             num += 1
-        a.append(col)
+        a.append(row)
 
     print_array(a)
 
