@@ -13,7 +13,7 @@ class Solution:
             if nums[i]!=0:
                 # Bring the non zero element here
                 nums[i], nums[non_zero_idx] = nums[non_zero_idx], nums[i] # Nice swapping syntax
-                non_zero_idx+=1
+                non_zero_idx+=1 # This idx also represents the count of non zero items
                 
         
                 
