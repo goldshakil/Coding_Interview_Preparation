@@ -2,7 +2,7 @@
 print("#############")
 
 # Important string functions in python (all not in place change):
-#### count, endswith, startswith, index, isalpha, isdigit, join, replace, split, upper, lower, translate
+#### count, endswith, startswith, index, isalpha, isdigit, join, replace, split, upper, lower, translate, sorted
 
 
 # Important list functions in python: https://www.w3schools.com/python/python_ref_list.asp
