@@ -9,7 +9,7 @@
 
 # Think about 2 or 3 nodes
 def dfs(node):
-    # returns the max_depth of a tree rooted at node
+    # returns the max_depth from leaf up to node
     if not node: # null node -> tree height=0
         return 0 
     return 1+max(dfs(node.left),dfs(node.right))  #+1 because we found a node (add the depth coming up)
