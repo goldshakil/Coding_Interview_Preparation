@@ -5,7 +5,7 @@ class Solution:
         # O(N*LOG(N)) -> Sorting -> pick nums[(n//2)]
         # O(N) -> Use a hashmap -> O(N) Space
         
-        # O(N) solution O(1) time -> keyword is more than half - floor(n/2)
+        # O(N) time O(1) space -> keyword is more than half - floor(n/2)
         # Boyer-Moore -> The intuition is that the majority number count will be +1
         #                compared to other elements
         # e.g = [2,2,1,3,4,2,2] 
