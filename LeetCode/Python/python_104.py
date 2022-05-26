@@ -1,4 +1,3 @@
-# LC-104
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -10,10 +9,10 @@
 
 # Think about 2 or 3 nodes
 def dfs(node,depth):
-    if node:
-        max_depth=max(dfs(node.left,depth+1),dfs(node.right,depth+1))
-        return max_depth
-    return depth
+    if not node: # null node -> tree height=0
+        return 0 
+    return 1+max(dfs(node.left,depth),dfs(node.right,depth))  #+1 because we found a node
+    
         
     
 class Solution:
