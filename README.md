@@ -10,5 +10,5 @@ This repository is targeted towards getting ready for coding interviews in Java 
 ## More on **Programming Patterns Notes** section in the coding guide:
 This [repo]([url](https://github.com/SeanPrashad/leetcode-patterns)) has some more helpful and useful notes regarding programming patterns.
 
-## Ress=ources to use for reference:
+## Resources to use for reference:
 Cracking the Coding Interview Book, I personally refer to this book for only revising DS and Algo fundamentals and not for solving the problems listed in the book.
