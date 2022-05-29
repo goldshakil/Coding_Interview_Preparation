@@ -11,7 +11,7 @@ This repository is targeted towards getting ready for coding interviews in Java 
 6. And before your interviews, get premium on LeetCode and solve the top problems in the company you're applying for on LeetCode.
 
 ## More on **Programming Patterns Notes** section in the coding guide:
-This [repo]([url](https://github.com/SeanPrashad/leetcode-patterns)) has some more helpful and useful notes regarding programming patterns.
+This [repo](https://github.com/SeanPrashad/leetcode-patterns) has some more helpful and useful notes regarding programming patterns.
 
 ## Resources to use for reference:
 Cracking the Coding Interview Book, I personally refer to this book for only revising DS and Algo fundamentals and not for solving the problems listed in the book.
