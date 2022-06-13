@@ -1,4 +1,4 @@
-#LC-136
+# LC-136
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         # O(N^2) -> double loop search
@@ -7,10 +7,9 @@ class Solution:
         
         # Keyword is "TWICE" -> XOR
         
-        unique=0
+        unique=0 # 0 ^ X = X
         
         for i in nums:
             unique^=i #Edge case of when len(nums)==1 is handled -> 0^ANY=ANY
         
         return unique
-            
